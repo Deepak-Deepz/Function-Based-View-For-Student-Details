@@ -1,0 +1,36 @@
+<html>
+{% extends 'myApp/parent.html' %}
+<head>
+</head>
+  <body>
+    {% block for_child %}
+
+    <h1 style="color:red;"><b>Student Details</b></h1><br>
+    <table border="2">
+      <tr style="color:Blue">
+        <th><h1><b>ID</b></h1></th>
+        <th><h1><b>NAME</b></h1></th>
+        <th><h1><b>DOB</b></h1></th>
+        <th><h1><b>MARKS</b></h1></th>
+        <th><h1><b>PHONE</b></h1></th>
+        <th><h1><b>ADDRESS</b></h1></th>
+      </tr>
+      {% for x in stud %}
+      <tr>
+        <td><b>{{x.sid}}</b></td>
+        <td><b>{{x.sname}}</b></td>
+        <td><b>{{x.sdob}}</b></td>
+        <td><b>{{x.smarks}}</b></td>
+        <td><b>{{x.sphone}}</b></td>
+        <td><b>{{x.saddr}}</b></td>
+        <td><a href ="/update/{{x.id}}" class="btn btn-lg btn-warning">Update</a>
+        <td><a href="/delete/{{x.id}}" class="btn btn-lg btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table> <br><br>
+    <a href="/insert" class="btn btn-lg btn-primary">Do you want to insert a new record?</a>
+
+      {% endblock %}
+  </body>
+</html>
